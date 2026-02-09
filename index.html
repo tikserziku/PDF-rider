@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PDF Rider</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="page__header">
+        <div>
+          <h1>Просмотр PDF</h1>
+          <p>Кнопка загрузки PDF находится справа сверху. Для публичной ссылки используйте поле ниже, чтобы открыть PDF по URL.</p>
+        </div>
+        <div class="actions">
+          <label class="button button--secondary" for="pdfUpload">Выбрать PDF</label>
+          <input id="pdfUpload" type="file" accept="application/pdf" />
+          <button id="fullscreenToggle" class="button" type="button">На весь экран</button>
+        </div>
+      </header>
+
+      <section class="link-panel" aria-label="Публичная ссылка на PDF">
+        <div>
+          <h2>Публичная ссылка</h2>
+          <p>Вставьте URL на PDF-файл и нажмите «Открыть по ссылке».</p>
+        </div>
+        <div class="link-panel__controls">
+          <input
+            id="publicLink"
+            class="link-panel__input"
+            type="url"
+            placeholder="https://example.com/file.pdf"
+            autocomplete="off"
+          />
+          <button id="openLink" class="button" type="button">Открыть по ссылке</button>
+        </div>
+      </section>
+
+      <section class="viewer" id="viewerContainer">
+        <div class="viewer__placeholder" id="placeholder">
+          <p>PDF ещё не выбран.</p>
+          <p>Нажмите «Выбрать PDF» или вставьте публичную ссылку выше.</p>
+        </div>
+        <iframe
+          id="pdfViewer"
+          class="viewer__frame"
+          title="PDF просмотр"
+          loading="lazy"
+        ></iframe>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
